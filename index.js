@@ -4,7 +4,7 @@ const express = require('express')
 /**
  * ROUTES
  */
-const migrationRouter = require('./src/routes/migrationRoutes')
+// const migrationRouter = require('./src/routes/migrationRoutes')
 
 const connectToMongoDB = require('./src/db/connect');
 
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.send('Hey this is my API running 🥳')
 })
 
-app.use('/migrations', migrationRouter)
+// app.use('/migrations', migrationRouter)
 
 // Export the Express API
 module.exports = app
