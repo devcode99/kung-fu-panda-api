@@ -11,22 +11,26 @@ const connectToMongoDB = require('./src/db/connect');
 const app = express()
 const PORT = 7000
 
-// Connect to MongoDB
-// connectToMongoDB();
-
 app.use(express.json({
 
 }))
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
+// Connect to MongoDB
+connectToMongoDB().then(() => {
 
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
 
-// app.use('/migrations', migrationRouter)
+  app.listen(PORT, () => {
+    console.log(`API listening on PORT ${PORT} `)
+  })
+
+  app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+  })
+
+  // app.use('/migrations', migrationRouter)
+
+});
 
 // Export the Express API
 module.exports = app
+
