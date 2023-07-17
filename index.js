@@ -29,6 +29,13 @@ connectToMongoDB().then(() => {
 
   // app.use('/migrations', migrationRouter)
 
+}).catch(error => {
+  app.get('/error', (req, res) => {
+    res.send({
+      message: 'Fatta---------------------->',
+      error
+    })
+  })
 });
 
 // Export the Express API
