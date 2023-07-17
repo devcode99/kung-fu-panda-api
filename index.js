@@ -1,5 +1,6 @@
 // index.js
 const express = require('express')
+const router = require('./api/route')
 
 const app = express()
 const PORT = 4000
@@ -15,6 +16,8 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.send('This is my about route..... ')
 })
+
+app.use('/test', router)
 
 // Export the Express API
 module.exports = app
