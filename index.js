@@ -6,13 +6,13 @@ const express = require('express')
  */
 // const migrationRouter = require('./src/routes/migrationRoutes')
 
-const connectToMongoDB = require('./src/db/connect');
+// const connectToMongoDB = require('./src/db/connect');
 
 const app = express()
 const PORT = 7000
 
 // Connect to MongoDB
-connectToMongoDB();
+// connectToMongoDB();
 
 app.use(express.json({
 
