@@ -1,31 +1,28 @@
 // index.js
 const express = require('express')
-const connectToMongoDB = require('./src/db/connect');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+// const connectToMongoDB = require('./tmpFolder/db/connect');
+// const cookieParser = require('cookie-parser');
+// const cors = require('cors');
+// const bodyParser = require('body-parser');
 
-const authUserRouter = require('./src/routes/authenticateUserRoute');
-const employeesRouter = require('./src/routes/employeeRoutes');
-const loginRouter = require('./src/routes/Login');
-const AuthOTPRouter = require('./src/routes/OTPSendToAuthenticatedUser');
-const validationRouter = require('./src/routes/validationRoutes');
-const taskRouter = require('./src/routes/taskRoutes');
-const skillRouter = require('./src/routes/skillsRoutes');
-const statusRouter = require('./src/routes/statusRoutes');
-const rolesRouter = require('./src/routes/rolesRoutes');
-const permissionRouter = require('./src/routes/permissionRoutes');
-const usersRouter = require('./src/routes/userRoutes');
+// const authUserRouter = require('./tmpFolder/routes/authenticateUserRoute');
+// const employeesRouter = require('./tmpFolder/routes/employeeRoutes');
+// const loginRouter = require('./tmpFolder/routes/Login');
+// const AuthOTPRouter = require('./tmpFolder/routes/OTPSendToAuthenticatedUser');
+// const validationRouter = require('./tmpFolder/routes/validationRoutes');
+// const taskRouter = require('./tmpFolder/routes/taskRoutes');
+// const skillRouter = require('./tmpFolder/routes/skillsRoutes');
+// const statusRouter = require('./tmpFolder/routes/statusRoutes');
+// const rolesRouter = require('./tmpFolder/routes/rolesRoutes');
+// const permissionRouter = require('./tmpFolder/routes/permissionRoutes');
+// const usersRouter = require('./tmpFolder/routes/userRoutes');
+// const migrationRouter = require('./tmpFolder/routes/migrationRoutes')
 
 const app = express()
 const PORT = 7000
 
 app.listen(PORT, () => {
-    console.log(`API listening on PORT ${PORT} `)
-})
-
-app.route('/test-route', () => {
-    console.log('LISTENING')
+    console.warn(`API listening on PORT ${PORT} `)
 })
 
 // Connect to MongoDB
@@ -34,9 +31,14 @@ app.route('/test-route', () => {
 // app.use(express.json({ limit: '50mb' }));
 // app.use(express.urlencoded({ limit: '50mb', extended: false }));
 // app.use(cookieParser());
-// app.use(cors());
+// app.use(cors({
+//     origin: '*'
+// }));
 // app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('API STARTING')
+})
 // app.use('/', authUserRouter);
 // app.use('/users', employeesRouter);
 // app.use('/login', loginRouter);
@@ -48,6 +50,10 @@ app.route('/test-route', () => {
 // app.use('/roles', rolesRouter);
 // app.use('/permissions', permissionRouter);
 // app.use('/employees', usersRouter);
+// app.use('/migrations', migrationRouter);
+app.get('/test-route', (req, res) => {
+    res.send('TEST ROUTE WORKING AS EXPECTED')
+})
 
 // app.use(function (err, req, res, next) {
 //     // set locals, only providing error in development
@@ -55,9 +61,11 @@ app.route('/test-route', () => {
 //     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 //     // render the error page
+//     console.warn(err, '------------------> Custom Error')
 //     res.status(err.status || 500);
 //     res.render('error');
 // });
+
 
 
 
