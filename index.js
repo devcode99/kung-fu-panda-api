@@ -29,35 +29,35 @@ app.route('/test-route', () => {
 })
 
 // Connect to MongoDB
-connectToMongoDB();
+// connectToMongoDB();
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: false }));
-app.use(cookieParser());
-app.use(cors());
-app.use(bodyParser.json());
+// app.use(express.json({ limit: '50mb' }));
+// app.use(express.urlencoded({ limit: '50mb', extended: false }));
+// app.use(cookieParser());
+// app.use(cors());
+// app.use(bodyParser.json());
 
-app.use('/', authUserRouter);
-app.use('/users', employeesRouter);
-app.use('/login', loginRouter);
-app.use('/auth', AuthOTPRouter);
-app.use('/validation', validationRouter);
-app.use('/tasks', taskRouter);
-app.use('/skills', skillRouter);
-app.use('/status', statusRouter);
-app.use('/roles', rolesRouter);
-app.use('/permissions', permissionRouter);
-app.use('/employees', usersRouter);
+// app.use('/', authUserRouter);
+// app.use('/users', employeesRouter);
+// app.use('/login', loginRouter);
+// app.use('/auth', AuthOTPRouter);
+// app.use('/validation', validationRouter);
+// app.use('/tasks', taskRouter);
+// app.use('/skills', skillRouter);
+// app.use('/status', statusRouter);
+// app.use('/roles', rolesRouter);
+// app.use('/permissions', permissionRouter);
+// app.use('/employees', usersRouter);
 
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+// app.use(function (err, req, res, next) {
+//     // set locals, only providing error in development
+//     res.locals.message = err.message;
+//     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
+//     // render the error page
+//     res.status(err.status || 500);
+//     res.render('error');
+// });
 
 
 
