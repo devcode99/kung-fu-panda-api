@@ -20,6 +20,10 @@ const usersRouter = require('./src/routes/userRoutes');
 const app = express()
 const PORT = 7000
 
+app.listen(PORT, () => {
+    console.log(`API listening on PORT ${PORT} `)
+})
+
 // Connect to MongoDB
 connectToMongoDB();
 
@@ -51,9 +55,7 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-app.listen(PORT, () => {
-    console.log(`API listening on PORT ${PORT} `)
-})
+
 
 // Export the Express API
 module.exports = app
