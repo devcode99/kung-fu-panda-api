@@ -4,7 +4,7 @@ const express = require('express')
 /**
  * ROUTES
  */
-// const migrationRouter = require('./src/routes/migrationRoutes')
+const migrationRouter = require('./src/routes/migrationRoutes')
 
 const connectToMongoDB = require('./src/db/connect');
 
@@ -16,27 +16,18 @@ app.use(express.json({
 }))
 
 // Connect to MongoDB
-connectToMongoDB().then(() => {
+connectToMongoDB()
 
+app.listen(PORT, () => {
+  console.log(`API listening on PORT ${PORT} `)
+})
 
-  app.listen(PORT, () => {
-    console.log(`API listening on PORT ${PORT} `)
-  })
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳')
+})
 
-  app.get('/', (req, res) => {
-    res.send('Hey this is my API running 🥳')
-  })
+app.use('/migrations', migrationRouter)
 
-  // app.use('/migrations', migrationRouter)
-
-}).catch(error => {
-  app.get('/error', (req, res) => {
-    res.send({
-      message: 'Fatta---------------------->',
-      error
-    })
-  })
-});
 
 // Export the Express API
 module.exports = app
