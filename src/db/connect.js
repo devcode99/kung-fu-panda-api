@@ -12,6 +12,7 @@ async function connectToMongoDB(req, res) {
     console.error('MongoDB connection error:', error);
     res.status(500).send({
         error,
+        stack: error.stack,
         message: 'Yeah, Fatta----------->'
     })
     // throw new Error(error)

@@ -6,7 +6,7 @@
 
 const MongooseCollection = require('../../collection');
 const MongooseError = require('../../error/mongooseError');
-const Collection = require('mongodb').Collection;
+const Collection = require('../../../tmp_node_modules/mongodb/lib/index').Collection;
 const ObjectId = require('../../types/objectid');
 const getConstructorName = require('../../helpers/getConstructorName');
 const stream = require('stream');
