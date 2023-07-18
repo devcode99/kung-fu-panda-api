@@ -15,8 +15,12 @@ app.use(express.json({
 
 }))
 
-// Connect to MongoDB
-connectToMongoDB()
+app.use((req, res) => {
+  // Connect to MongoDB
+  connectToMongoDB(req, res)
+
+})
+
 
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `)
