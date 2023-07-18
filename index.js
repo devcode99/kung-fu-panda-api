@@ -18,10 +18,10 @@ app.use(express.json({
 }))
 
 // Connect to MongoDB
-connectToMongoDB()
-// app.use((req, res) => {
+app.use((req, res) => {
+  connectToMongoDB(req, res)
 
-// })
+})
 
 
 app.listen(PORT, () => {
