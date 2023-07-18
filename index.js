@@ -16,7 +16,7 @@ const PORT = 7000
 app.use(express.json({
 
 }))
-
+// connectToMongoDB()
 // Connect to MongoDB
 app.use((req, res) => {
   connectToMongoDB(req, res)

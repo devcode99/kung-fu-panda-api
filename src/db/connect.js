@@ -6,7 +6,7 @@ async function connectToMongoDB(req, res) {
   try {
     // const client = await MongoClient.connect(process.env.MONGODB_URI)
     // const query = client.db(`kung_fu_panda`)
-    await require('../../node_modules/mongoose').connect(`${process.env.MONGODB_URI}kung_fu_panda`);
+    await require('../packages/mongoose').connect(`${process.env.MONGODB_URI}kung_fu_panda`);
     console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('MongoDB connection error:', error);
