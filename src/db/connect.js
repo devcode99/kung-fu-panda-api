@@ -7,7 +7,7 @@ async function connectToMongoDB() {
     // const client = await MongoClient.connect(process.env.MONGODB_URI)
     // const query = client.db(`kung_fu_panda`)
     // await mongoose.connect(`${process.env.MONGODB_URI}kung_fu_panda`);
-    console.log('MongoDB connected successfully', client, query);
+    console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('MongoDB connection error:', error);
     // throw new Error(error)
