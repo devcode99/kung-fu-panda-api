@@ -1,14 +1,14 @@
 // index.js
-// const express = require('express')
-import express from 'express'
+const express = require('express')
+// import express from 'express'
 
 /**
  * ROUTES
  */
 // const migrationRouter = require('./src/routes/migrationRoutes')
 
-import {connectToMongoDB} from './src/db/connect.js'
-// const connectToMongoDB = require('./src/db/connect');
+// import {connectToMongoDB} from './src/db/connect.js'
+const connectToMongoDB = require('./src/db/connect');
 
 const app = express()
 const PORT = 7000
@@ -36,6 +36,6 @@ app.get('/', (req, res) => {
 
 
 // Export the Express API
-// module.exports = app
-export default app;
+module.exports = app
+// export default app;
 
