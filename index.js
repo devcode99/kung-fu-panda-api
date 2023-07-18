@@ -1,12 +1,14 @@
 // index.js
-const express = require('express')
+// const express = require('express')
+import express from 'express'
 
 /**
  * ROUTES
  */
 // const migrationRouter = require('./src/routes/migrationRoutes')
 
-const connectToMongoDB = require('./src/db/connect');
+import {connectToMongoDB} from './src/db/connect.js'
+// const connectToMongoDB = require('./src/db/connect');
 
 const app = express()
 const PORT = 7000
@@ -15,11 +17,11 @@ app.use(express.json({
 
 }))
 
-app.use((req, res) => {
-  // Connect to MongoDB
-  connectToMongoDB(req, res)
+// Connect to MongoDB
+connectToMongoDB()
+// app.use((req, res) => {
 
-})
+// })
 
 
 app.listen(PORT, () => {
@@ -34,5 +36,6 @@ app.get('/', (req, res) => {
 
 
 // Export the Express API
-module.exports = app
+// module.exports = app
+export default app;
 
