@@ -19,7 +19,14 @@ app.use(express.json({
 // connectToMongoDB()
 // Connect to MongoDB
 app.use((req, res) => {
-  connectToMongoDB(req, res)
+  try {
+    connectToMongoDB(req, res)
+  } catch (error) {
+    res.send({
+      message: 'Error',
+      content: error
+    })
+  }
 
 })
 
